@@ -15,7 +15,10 @@ const WebcamCapture = (props) => {
     const capture = React.useCallback(
         () => {
             const imageSrc = webcamRef.current.getScreenshot();
-            console.log(imageSrc);
+            const key = Date.now();
+            localStorage.setItem(key, imageSrc)
+            // console.log(imageSrc);
+            props.onCapture(key);
         },
         [webcamRef]
     );
