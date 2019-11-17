@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import Home from '../home/Home';
 import WebcamCapture from '../webcamCapture/WebcamCapture';
 
 class App extends Component{
@@ -13,6 +14,8 @@ class App extends Component{
   render() {
     return (
       <div className="App">
+
+        <Home />
         
         <WebcamCapture />
         
