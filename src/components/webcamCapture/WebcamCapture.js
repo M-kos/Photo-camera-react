@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Webcam from "react-webcam";
+import Button from '../button/Button';
 
 const videoConstraints = {
     width: 1280,
@@ -8,7 +9,7 @@ const videoConstraints = {
     facingMode: "user"
 };
 
-const WebcamCapture = () => {
+const WebcamCapture = (props) => {
     const webcamRef = React.useRef(null);
 
     const capture = React.useCallback(
@@ -29,7 +30,8 @@ const WebcamCapture = () => {
                 videoConstraints={videoConstraints}
                 mirrored={true}
             />
-            <button onClick={capture}>Capture photo</button>
+            <Button btnClassName="greenBtn" onBtnClick={capture} btnTitle="Capture"/>
+            <Button btnClassName="whiteBtn" onBtnClick={props.onEnter} btnTitle="Back" />
         </>
     );
 };

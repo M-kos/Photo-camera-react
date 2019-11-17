@@ -24,7 +24,7 @@ class App extends Component{
 
     return (
       <div className="App">
-        {isCameraEnter ? <WebcamCapture /> : <Home onEnter={this.onEnter}/>}
+        {isCameraEnter ? <WebcamCapture onEnter={this.onEnter} /> : <Home onEnter={this.onEnter}/>}
       </div>
     );
   }
