@@ -9,7 +9,7 @@ const Home = (props) => {
         <Fragment>
             <img src={gallery} alt="gallery" />
             <Button btnClassName="greenBtn" onBtnClick={props.onEnter} btnTitle="Open camera" />
-            <Button btnClassName="grayBtn" onBtnClick={props.onEnter} btnTitle="Clear history" />
+            <Button btnClassName="grayBtn" onBtnClick={props.onClearHistory} btnTitle="Clear history" />
         </ Fragment>
     );
 }

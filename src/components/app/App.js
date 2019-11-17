@@ -37,12 +37,20 @@ class App extends Component{
     });
   }
 
+  onClearHistory = () => {
+    localStorage.clear();
+    this.setState({
+      imgArr: []
+    });
+  }
+
   render() {
     const { isCameraEnter } = this.state;
 
     return (
       <div className="App">
-        {isCameraEnter ? <WebcamCapture onEnter={this.onEnter} onCapture={this.onCapture} /> : <Home onEnter={this.onEnter} />}
+        {isCameraEnter ? <WebcamCapture onEnter={this.onEnter} onCapture={this.onCapture} /> : <Home onEnter={this.onEnter} onClearHistory={this.onClearHistory} />}
+        
       </div>
     );
   }
