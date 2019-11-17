@@ -1,4 +1,5 @@
 import React from 'react';
+import './history.css';
 
 const History = ({ imgArr }) => {
     const imgList = imgArr.map(({ id, imgSrc }) => {
@@ -6,7 +7,10 @@ const History = ({ imgArr }) => {
     });
     return (
         <div className="history">
-            {imgList}
+            <p className="historyTitle">History</p>
+            <div className="img-container">
+                {imgList}
+            </div>
         </div>
     );
 }

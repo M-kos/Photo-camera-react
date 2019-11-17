@@ -1,0 +1,36 @@
+.btn {
+    padding: 0;
+    width: 150px;
+    height: 50px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(146, 146, 146);
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    margin: 0px 29px;
+}
+
+.btn.greenBtn {
+    background-color: #4B9C7B;
+}
+.btn.redBtn {
+    background-color: #C85B5B;
+}
+.btn.grayBtn {
+    background-color: #D8D8D8;
+    cursor: default;
+}
+.btn.grayBtn:focus {
+    outline: none;
+}
+.btn.whiteBtn {
+    background-color: #fff;
+    color: #4B9C7B;
+}
+
+@media (max-width: 576px) {
+    .btn {
+        margin: 10px 29px;
+    }
+}

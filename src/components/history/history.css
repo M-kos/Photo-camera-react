@@ -1,0 +1,52 @@
+.history {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 13vh;
+}
+
+.historyTitle {
+    width: 100%;
+    text-align: left;
+    color: #283F5C;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.img-container {
+    width: 100%;
+    padding: 10px 30px 30px 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.photo-item {
+    width: 22vw;
+    height: 12vw;
+    transform: scale(-1, 1);
+    margin: 10px;
+}
+
+@media (max-width: 992px) {
+    .photo-item {
+        width: 44vw;
+        height: 22vw;
+        margin: 5px; 
+    }
+
+    .img-container {
+        padding: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .photo-item {
+        width: 88vw;
+        height: 44vw;
+        margin: 2px; 
+    }
+}

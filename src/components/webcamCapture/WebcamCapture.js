@@ -1,7 +1,10 @@
 import React from 'react';
+import './WebcamCapture.css';
 
 import Webcam from "react-webcam";
 import Button from '../button/Button';
+
+import face from './face.svg';
 
 const videoConstraints = {
     width: 1280,
@@ -23,17 +26,22 @@ const WebcamCapture = ({ onCapture, onEnter }) => {
     );
     return (
         <div className="webcamCapture">
-            <Webcam
-                audio={false}
-                height={720}
-                ref={webcamRef}
-                screenshotFormat="image/jpeg"
-                width={1280}
-                videoConstraints={videoConstraints}
-                mirrored={false}
-            />
-            <Button btnClassName="greenBtn" onBtnClick={capture} btnTitle="Capture"/>
-            <Button btnClassName="whiteBtn" onBtnClick={onEnter} btnTitle="Back" />
+            <div className="video-container">
+                <Webcam
+                    audio={false}
+                    height={720}
+                    ref={webcamRef}
+                    screenshotFormat="image/jpeg"
+                    width={1280}
+                    videoConstraints={videoConstraints}
+                    mirrored={false}
+                />
+                <img className="face" src={face} alt="face" />
+            </div>
+            <div className="btn-group">
+                <Button btnClassName="greenBtn" onBtnClick={capture} btnTitle="Capture"/>
+                <Button btnClassName="whiteBtn" onBtnClick={onEnter} btnTitle="Back" />
+            </div>
         </div>
     );
 };
