@@ -9,21 +9,20 @@ const videoConstraints = {
     facingMode: "user"
 };
 
-const WebcamCapture = (props) => {
+const WebcamCapture = ({ onCapture, onEnter }) => {
     const webcamRef = React.useRef(null);
 
     const capture = React.useCallback(
         () => {
             const imageSrc = webcamRef.current.getScreenshot();
             const key = Date.now();
-            localStorage.setItem(key, imageSrc)
-            // console.log(imageSrc);
-            props.onCapture(key);
+            localStorage.setItem(key, imageSrc);
+            onCapture(key);
         },
         [webcamRef]
     );
     return (
-        <>
+        <div className="webcamCapture">
             <Webcam
                 audio={false}
                 height={720}
@@ -31,11 +30,11 @@ const WebcamCapture = (props) => {
                 screenshotFormat="image/jpeg"
                 width={1280}
                 videoConstraints={videoConstraints}
-                mirrored={true}
+                mirrored={false}
             />
             <Button btnClassName="greenBtn" onBtnClick={capture} btnTitle="Capture"/>
-            <Button btnClassName="whiteBtn" onBtnClick={props.onEnter} btnTitle="Back" />
-        </>
+            <Button btnClassName="whiteBtn" onBtnClick={onEnter} btnTitle="Back" />
+        </div>
     );
 };
 

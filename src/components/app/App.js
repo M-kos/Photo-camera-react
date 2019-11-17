@@ -57,8 +57,12 @@ class App extends Component{
 
     return (
       <div className="App">
-        {isCameraEnter ? <WebcamCapture onEnter={this.onEnter} onCapture={this.onCapture} /> : <Home onEnter={this.onEnter} onClearHistory={this.onClearHistory} />}
+
+        {isCameraEnter ? 
+          <WebcamCapture onEnter={this.onEnter} onCapture={this.onCapture} /> : <Home onEnter={this.onEnter} onClearHistory={this.onClearHistory} btnClassName={imgArr.length ? "redBtn" : "grayBtn"}/>}
+
         {imgArr ? <History imgArr={imgArr} /> : null}
+
       </div>
     );
   }
