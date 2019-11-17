@@ -3,6 +3,7 @@ import './App.css';
 
 import Home from '../home/Home';
 import WebcamCapture from '../webcamCapture/WebcamCapture';
+import History from '../history/history';
 
 class App extends Component{
 
@@ -15,8 +16,15 @@ class App extends Component{
     let allImg = [];
 
     for(let i = 0; i < localStorage.length; i++) {
-      allImg.push(localStorage.getItem(localStorage.key(i)));
+      allImg.push({ 
+        id: localStorage.key(i), 
+        imgSrc: localStorage.getItem(localStorage.key(i)) 
+      });
     }
+
+    allImg.sort((a, b) => {
+      return a.id - b.id;
+    });
 
     this.setState({ imgArr: [...allImg] });
   }
@@ -33,7 +41,7 @@ class App extends Component{
     const newImg = localStorage.getItem(key);
 
     this.setState((prevState) => {
-      return { imgArr: [...prevState.imgArr, newImg] }
+      return { imgArr: [...prevState.imgArr, {id: key, imgSrc: newImg}] }
     });
   }
 
@@ -45,12 +53,12 @@ class App extends Component{
   }
 
   render() {
-    const { isCameraEnter } = this.state;
+    const { isCameraEnter, imgArr } = this.state;
 
     return (
       <div className="App">
         {isCameraEnter ? <WebcamCapture onEnter={this.onEnter} onCapture={this.onCapture} /> : <Home onEnter={this.onEnter} onClearHistory={this.onClearHistory} />}
-        
+        {imgArr ? <History imgArr={imgArr} /> : null}
       </div>
     );
   }
