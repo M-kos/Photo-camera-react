@@ -29,9 +29,7 @@ class App extends Component{
     this.setState({ imgArr: [...allImg] });
   }
 
-  onEnter = (e) => {
-    e.preventDefault();
-
+  onEnter = () => {
     this.setState(
       { isCameraEnter: !this.state.isCameraEnter }
     );

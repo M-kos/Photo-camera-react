@@ -35,6 +35,7 @@ const WebcamCapture = ({ onCapture, onEnter }) => {
                     width={1280}
                     videoConstraints={videoConstraints}
                     mirrored={false}
+                    onUserMediaError={onEnter}
                 />
                 <img className="face" src={face} alt="face" />
             </div>

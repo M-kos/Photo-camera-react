@@ -29,3 +29,17 @@ video {
         width: 120.75px;
     }
 }
+
+@media (max-width: 576px) {
+    video {
+        width: 360px;
+        height: 202px;
+    }
+
+    .face {
+        position: absolute;
+        top: 20.8px;
+        left: 137.8px;
+        width: 90px;
+    }
+}
