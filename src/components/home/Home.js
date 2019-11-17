@@ -1,10 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import gallery from './PhotoGallery.svg';
 
+import Button from '../button/Button';
+
 const Home = (props) => {
     return (
-        <img src={gallery} alt="gallery" />
+        <Fragment>
+            <img src={gallery} alt="gallery" />
+            <Button btnClassName="greenBtn" onBtnClick={props.onEnter} btnTitle="Open camera" />
+            <Button btnClassName="grayBtn" onBtnClick={props.onEnter} btnTitle="Clear history" />
+        </ Fragment>
     );
 }
 

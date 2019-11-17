@@ -7,18 +7,24 @@ import WebcamCapture from '../webcamCapture/WebcamCapture';
 class App extends Component{
 
   state = {
-    img: '',
+    isCameraEnter: false,
     img2: ''
   }
 
+  onEnter = (e) => {
+    e.preventDefault();
+
+    this.setState(
+      { isCameraEnter: !this.state.isCameraEnter }
+    );
+  };
+
   render() {
+    const { isCameraEnter } = this.state;
+
     return (
       <div className="App">
-
-        <Home />
-        
-        <WebcamCapture />
-        
+        {isCameraEnter ? <WebcamCapture /> : <Home onEnter={this.onEnter}/>}
       </div>
     );
   }
