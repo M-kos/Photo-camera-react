@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import './WebcamCapture.css';
 
 import Webcam from "react-webcam";
@@ -13,9 +13,9 @@ const videoConstraints = {
 };
 
 const WebcamCapture = ({ onCapture, onEnter }) => {
-    const webcamRef = React.useRef(null);
+    const webcamRef = useRef(null);
 
-    const capture = React.useCallback(
+    const capture = useCallback(
         () => {
             const imageSrc = webcamRef.current.getScreenshot();
             const key = Date.now();
